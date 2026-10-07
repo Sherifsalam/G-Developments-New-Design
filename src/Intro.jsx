@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import introMp4 from './assets/g-intro.mp4';
 import introWebm from './assets/g-intro.webm';
+import { isPhone } from './motion.js';
 
 const SEEN_KEY = 'g-intro-seen';
 
@@ -21,6 +22,7 @@ export default function Intro({ onDone, skipLabel = 'Skip intro', enabled = true
   const [show, setShow] = useState(() => {
     if (!enabled || typeof window === 'undefined') return false;
     if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return false;
+    if (isPhone()) return false; // phones go straight to the page
     return !alreadySeen();
   });
   const video = useRef(null);

@@ -1,5 +1,6 @@
 /** Building blocks shared by the inner pages (pages/*.jsx). */
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { useStill } from '../motion.js';
 import { ArrowRight } from 'lucide-react';
 import {
   BTN_LIGHT, Caption, EASE, Link, Photo, ROUTES, cx, inputCls, useLang, useRouter, useTitle,
@@ -90,7 +91,7 @@ export function SectionTitle({ id, title, subtitle, className = '', as: Tag = 'h
 
 export function RiseItem({ index = 0, className = '', children, as = 'li' }) {
   const Tag = motion[as];
-  const still = useReducedMotion();
+  const still = useStill();
   if (still) return <Tag className={cx('min-w-0', className)}>{children}</Tag>;
   return (
     <Tag

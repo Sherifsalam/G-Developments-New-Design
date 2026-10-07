@@ -11,8 +11,9 @@ import {
 } from 'react';
 import Lenis from 'lenis';
 import {
-  motion, useInView, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform, useVelocity,
+  motion, useInView, useMotionValue, useScroll, useSpring, useTransform, useVelocity,
 } from 'framer-motion';
+import { isPhone, isStill, useStill } from './motion.js';
 
 const cx = (...c) => c.filter(Boolean).join(' ');
 const prefersReduced = () => typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
@@ -28,7 +29,8 @@ export function SmoothScroll({ children }) {
   const locks = useRef(0);
 
   useEffect(() => {
-    if (prefersReduced()) return undefined;
+    // Phones scroll natively: Lenis' inertia fights iOS momentum scrolling and the toolbar resize.
+    if (prefersReduced() || isPhone()) return undefined;
     const lenis = new Lenis({ lerp: 0.1, smoothWheel: true, wheelMultiplier: 0.9 });
     lenisRef.current = lenis;
     let raf = 0;
@@ -42,7 +44,7 @@ export function SmoothScroll({ children }) {
       const el = typeof target === 'string' ? document.querySelector(target) : target;
       if (!el) return;
       if (lenisRef.current) lenisRef.current.scrollTo(el, { offset: -72, duration: 1.4, ...opts });
-      else el.scrollIntoView({ behavior: prefersReduced() ? 'auto' : 'smooth', block: 'start' });
+      else el.scrollIntoView({ behavior: isStill() ? 'auto' : 'smooth', block: 'start' });
     },
     /** Jump to the top without easing (used on page changes). */
     toTop() {
@@ -165,6 +167,7 @@ export function Elastic({ as = 'button', children, className = '', innerClassNam
   const ix = useTransform(sx, (v) => v * 0.3);
   const iy = useTransform(sy, (v) => v * 0.3);
   const Tag = motion[as];
+  const still = useStill();
 
   const onMove = (e) => {
     if (e.pointerType !== 'mouse' || !ref.current) return;
@@ -184,7 +187,7 @@ export function Elastic({ as = 'button', children, className = '', innerClassNam
       ref={ref}
       onPointerMove={onMove}
       onPointerLeave={reset}
-      whileTap={{ scale: 0.97 }}
+      whileTap={still ? undefined : { scale: 0.97 }}
       transition={{ type: 'spring', ...BOUNCE }}
       style={{ x: sx, y: sy, scaleX, scaleY }}
       className={className}
@@ -200,7 +203,7 @@ export function Elastic({ as = 'button', children, className = '', innerClassNam
 /* ───────── elastic wordmark ───────── */
 
 function Letter({ ch, index, px, py, reveal, delay }) {
-  const still = useReducedMotion();
+  const still = useStill();
   const ref = useRef(null);
   const center = useRef({ x: 0, y: 0, w: 1 });
   useLayoutEffect(() => {
@@ -265,11 +268,19 @@ export function ElasticWordmark({ text = 'G Developments', reveal = true, delay 
 /* ───────── elastic string divider ───────── */
 
 export function ElasticString({ className = '' }) {
+  const still = useStill();
   const { scrollY } = useScroll();
   const velocity = useVelocity(scrollY);
   const bendTarget = useTransform(velocity, [-3000, 0, 3000], [-12, 0, 12], { clamp: true });
   const bend = useSpring(bendTarget, { stiffness: 120, damping: 16, mass: 0.8 });
   const d = useTransform(bend, (b) => `M0 40 Q 600 ${40 + b} 1200 40`);
+  if (still) {
+    return (
+      <svg aria-hidden="true" viewBox="0 0 1200 80" preserveAspectRatio="none" className={cx('block h-16 w-full', className)}>
+        <path d="M0 40 L1200 40" fill="none" stroke="rgba(255,255,255,0.14)" strokeWidth="1" vectorEffect="non-scaling-stroke" />
+      </svg>
+    );
+  }
   return (
     <svg aria-hidden="true" viewBox="0 0 1200 80" preserveAspectRatio="none" className={cx('block h-16 w-full', className)}>
       <motion.path d={d} fill="none" stroke="rgba(255,255,255,0.14)" strokeWidth="1" vectorEffect="non-scaling-stroke" />

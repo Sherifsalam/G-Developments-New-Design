@@ -22,7 +22,7 @@ import {
   Suspense, createContext, lazy, useCallback, useContext, useEffect, useLayoutEffect, useMemo, useRef, useState,
 } from 'react';
 import {
-  AnimatePresence, MotionConfig, motion, useMotionTemplate, useMotionValue, useReducedMotion, useScroll,
+  AnimatePresence, MotionConfig, motion, useMotionTemplate, useMotionValue, useScroll,
   useSpring, useTransform,
 } from 'framer-motion';
 import {
@@ -32,6 +32,7 @@ import {
 import ArchPlate from './ArchPlate.jsx';
 import Intro from './Intro.jsx';
 import Condensation from './effects/Condensation.jsx';
+import { useStill } from './motion.js';
 import {
   Elastic, ElasticString, GCursor, ElasticWordmark, SmoothScroll, useScrollLock, useSmoothScroll,
 } from './elastic.jsx';
@@ -174,6 +175,8 @@ export function SectionHeading({ eyebrow, title, subtitle, className = '', id })
 
 /** Masked line reveal: each word rises out of its own clip. */
 function SplitReveal({ text, play = true, delay = 0, className = '' }) {
+  const still = useStill();
+  if (still) return <span className={className}>{text}</span>;
   return (
     <span className={className}>
       {text.split(' ').map((w, i) => (
@@ -197,7 +200,7 @@ function SplitReveal({ text, play = true, delay = 0, className = '' }) {
  * Returns nothing when the reader prefers reduced motion, so the content is simply there.
  */
 export function useRevealProps({ y = 24, delay = 0, duration = 1.2, margin = '0px 0px -10% 0px' } = {}) {
-  const still = useReducedMotion();
+  const still = useStill();
   if (still) return {};
   return {
     initial: { opacity: 0, y },
@@ -216,7 +219,7 @@ export function Reveal({ children, delay = 0, className = '', as = 'div' }) {
   const Tag = motion[as];
   // Readers who ask for less motion get the content straight away rather than a hidden element
   // waiting on a scroll trigger. (This is also what makes the page capturable by screenshot tools.)
-  const still = useReducedMotion();
+  const still = useStill();
   if (still) return <Tag className={className}>{children}</Tag>;
   return (
     <Tag
@@ -236,7 +239,7 @@ export function Photo({ src, alt = '', plate = 'curve', className = '', eager = 
   const [loaded, setLoaded] = useState(false);
   // With reduced motion the picture is simply there — no fade, and nothing hidden behind a
   // load event that may never be observed (screenshot tools and some crawlers never see it).
-  const still = useReducedMotion();
+  const still = useStill();
   if (!src) return <ArchPlate variant={plate} className={className} />;
   return (
     <img
@@ -450,6 +453,7 @@ export function Segmented({ options, value, onChange, tone = 'dark', layoutId, l
 function ScrollProgress() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 30 });
+  if (useStill()) return null;
   return <motion.div aria-hidden="true" style={{ scaleX }} className="fixed inset-x-0 top-0 z-[70] h-[2px] origin-[0%] bg-white rtl:origin-[100%]" />;
 }
 
@@ -471,6 +475,7 @@ function Header({ onMenu, menuOpen, onConcierge, lang, setLang }) {
   const { path } = useRouter();
   const linkTo = useLinkTo();
   const sub = useSubNav();
+  const still = useStill();
   const [hidden, setHidden] = useState(false);
   const [solid, setSolid] = useState(false);
   // The dropdowns open on hover and focus. After a choice the pointer is usually still over the
@@ -496,12 +501,13 @@ function Header({ onMenu, menuOpen, onConcierge, lang, setLang }) {
     const on = () => {
       const y = window.scrollY;
       setSolid(y > 40);
-      if (Math.abs(y - last) > 6) { setHidden(y > last && y > 400); last = y; }
+      // On phones the bar stays put: sliding it away while Safari's own toolbar resizes the page reads as a jolt.
+      if (Math.abs(y - last) > 6) { setHidden(!still && y > last && y > 400); last = y; }
     };
     on();
     window.addEventListener('scroll', on, { passive: true });
     return () => window.removeEventListener('scroll', on);
-  }, []);
+  }, [still]);
   return (
     <motion.header
       className="fixed inset-x-0 top-0 z-[95] px-4 pt-[calc(0.75rem+env(safe-area-inset-top,0px))] sm:px-6"
@@ -750,13 +756,15 @@ function Hero({ ready, onConcierge }) {
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
   const fade = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const sink = useTransform(scrollYProgress, [0, 1], ['0%', '14%']);
+  // Phones: no parallax, fade-out, zoom or entrance — the hero is simply there.
+  const still = useStill();
   return (
     <section id="top" ref={ref} className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-black">
-      <motion.div className="absolute inset-0 -z-10" style={{ y: sink }}>
+      <motion.div className="absolute inset-0 -z-10" style={still ? undefined : { y: sink }}>
         <motion.div
           className="absolute inset-0"
-          initial={{ scale: 1.12 }}
-          animate={{ scale: ready ? 1 : 1.12 }}
+          initial={still ? false : { scale: 1.12 }}
+          animate={still ? undefined : { scale: ready ? 1 : 1.12 }}
           transition={{ duration: 3.2, ease: [0.16, 1, 0.3, 1] }}
         >
           <Photo src={mediaUrl(HERO_BANNER.image)} alt={L(HERO_BANNER.alt)} eager />
@@ -767,8 +775,8 @@ function Hero({ ready, onConcierge }) {
       <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[70%] bg-gradient-to-t from-black via-black/60 to-transparent md:hidden" />
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 hidden bg-[linear-gradient(to_right,rgba(0,0,0,0.7)_0%,rgba(0,0,0,0)_60%)] md:block rtl:bg-[linear-gradient(to_left,rgba(0,0,0,0.7)_0%,rgba(0,0,0,0)_60%)]" />
 
-      <motion.div style={{ opacity: fade }} className="mx-auto flex w-full max-w-[1320px] flex-1 flex-col px-4 pb-6 pt-[calc(7rem+env(safe-area-inset-top,0px))] sm:px-6">
-        <motion.p className="caption text-g-25" initial={{ opacity: 0 }} animate={{ opacity: ready ? 1 : 0 }} transition={{ delay: 0.2, duration: 0.8 }}>
+      <motion.div style={still ? undefined : { opacity: fade }} className="mx-auto flex w-full max-w-[1320px] flex-1 flex-col px-4 pb-6 pt-[calc(7rem+env(safe-area-inset-top,0px))] sm:px-6">
+        <motion.p className="caption text-g-25" initial={still ? false : { opacity: 0 }} animate={still ? undefined : { opacity: ready ? 1 : 0 }} transition={{ delay: 0.2, duration: 0.8 }}>
           {t.heroEyebrow}
         </motion.p>
 
@@ -781,7 +789,7 @@ function Hero({ ready, onConcierge }) {
           </h1>
           <motion.div
             className="flex flex-col gap-6 lg:col-span-5 lg:items-end"
-            initial={{ opacity: 0, y: 20 }} animate={ready ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.2, ease: EASE, delay: 1 }}
+            initial={still ? false : { opacity: 0, y: 20 }} animate={still ? undefined : ready ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.2, ease: EASE, delay: 1 }}
           >
             <p className="max-w-[46ch] text-[15px] leading-relaxed text-g-25 lg:text-end">{t.heroSub}</p>
             <div className="flex flex-wrap gap-3">
@@ -976,7 +984,7 @@ function Destinations({ filters, onClear }) {
   // Mouse wheel over the row moves it one card per notch instead of scrolling the page. At either
   // end the wheel is left alone, so the page carries on scrolling. Trackpad sideways swipes stay native.
   const stepRef = useRef(step);
-  stepRef.current = step;
+  useEffect(() => { stepRef.current = step; });
   useEffect(() => {
     const el = track.current;
     if (!el) return undefined;
@@ -1738,6 +1746,7 @@ export default function GDevelopments({ onLead, onNavigate, initialLang = 'en', 
   const [filters, setFilters] = useState(null);
   const [concierge, setConcierge] = useState({ open: false, context: null, session: 0 });
   const [toast, setToast] = useState('');
+  const still = useStill();
 
   const ctx = useMemo(() => ({ lang, t: COPY[lang], L: (o) => (o && typeof o === 'object' ? o[lang] ?? o.en : o) }), [lang]);
 
@@ -1772,7 +1781,7 @@ export default function GDevelopments({ onLead, onNavigate, initialLang = 'en', 
   return (
     <LangContext.Provider value={ctx}>
       <RouterContext.Provider value={router}>
-        <MotionConfig reducedMotion="user">
+        <MotionConfig reducedMotion={still ? "always" : "user"}>
           <SmoothScroll>
             <Page
               {...{ lang, setLang, path, ready, onIntroDone, showIntro: introOnLoad, menuOpen, setMenuOpen, closeMenu, filters, setFilters, concierge, openConcierge, closeConcierge, toast, clearToast, onRoute, onLead }}

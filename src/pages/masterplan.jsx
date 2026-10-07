@@ -15,7 +15,8 @@
  * <Modal> (focus trap + Escape). Zooming is available as buttons, not only as a pinch.
  */
 import { useCallback, useId, useRef, useState } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { useStill } from '../motion.js';
 import { Download, Maximize2, Minus, Plus, RotateCcw } from 'lucide-react';
 import {
   BTN_GHOST, Caption, CloseButton, Modal, Photo, cx, useLang,
@@ -25,7 +26,7 @@ import { PLAYA_GHAZALA_MEDIA, PROJECT_MEDIA, mediaUrl } from '../media.js';
 import { SectionTitle, WRAP } from './shared.jsx';
 
 /** Panels slide in when they are switched; readers who ask for less motion just get them. */
-const usePanelMotion = () => (useReducedMotion() ? {} : {
+const usePanelMotion = () => (useStill() ? {} : {
   initial: { opacity: 0, y: 12 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },

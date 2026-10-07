@@ -5,6 +5,7 @@
  * and a React wrapper with pause-when-hidden.
  */
 import { useEffect, useRef } from 'react';
+import { isPhone } from '../motion.js';
 
 export const CONDENSATION_DEFAULTS = {
   speed: 1,
@@ -195,7 +196,7 @@ export default function Condensation({ className = '', speed = 1, dropAmount = 1
     host.appendChild(canvas);
     let renderer;
     try { renderer = createCondensationRenderer(canvas, () => optsRef.current); } catch { canvas.remove(); return undefined; }
-    const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches || isPhone();
     let frame = 0; let visible = true;
     const resize = () => { const r = host.getBoundingClientRect(); renderer.resize(r.width, r.height); renderer.render(performance.now()); };
     const tick = (now) => { renderer.render(now); frame = visible && !document.hidden && !reduce ? requestAnimationFrame(tick) : 0; };

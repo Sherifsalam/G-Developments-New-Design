@@ -52,3 +52,8 @@ html.g-cursor select { cursor: default !important; }
 /* Luxury button type: small caps-style label; Arabic keeps natural spacing */
 .btn-lux { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; }
 [lang='ar'] .btn-lux { font-size: 14px; letter-spacing: 0; text-transform: none; }
+
+/* Phones: the page is static (see motion.js). The launches rail would otherwise keep drifting. */
+@media (max-width: 767px) {
+  .animate-rail, .animate-rail-slow { animation: none; }
+}
