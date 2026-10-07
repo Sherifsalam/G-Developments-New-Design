@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Brand typefaces — supplied by G Developments (confirm web-embedding rights before launch). */
+@font-face { font-family: 'Helvetica Now Text'; src: url('./assets/fonts/HelveticaNowText-Light.woff2') format('woff2'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Helvetica Now Text'; src: url('./assets/fonts/HelveticaNowText-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Helvetica Now Text'; src: url('./assets/fonts/HelveticaNowText-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'G Helvetica Bold'; src: url('./assets/fonts/Helvetica-Bold.woff2') format('woff2'); font-weight: 400 900; font-style: normal; font-display: swap; }
+@font-face { font-family: 'DIN Next Arabic'; src: url('./assets/fonts/DINNextArabic-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'DIN Next Arabic'; src: url('./assets/fonts/DINNextArabic-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'DIN Next Arabic'; src: url('./assets/fonts/DINNextArabic-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+
+:root {
+  color-scheme: dark;
+  --font-display: 'G Helvetica Bold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-text: 'Helvetica Now Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+[lang='ar'] {
+  --font-display: 'DIN Next Arabic', 'G Helvetica Bold', Tahoma, sans-serif;
+  --font-text: 'DIN Next Arabic', 'Helvetica Now Text', Tahoma, sans-serif;
+}
+/* Latin brand names keep Helvetica inside Arabic pages */
+[lang='ar'] [dir='ltr'].font-display, .latin-display { font-family: 'G Helvetica Bold', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+
+html { -webkit-text-size-adjust: 100%; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+body { margin: 0; background: #000; color: #fff; -webkit-font-smoothing: antialiased; }
+::selection { background: #fff; color: #000; }
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* Latest launches image rail (pages/residences.jsx): each column holds its images twice, so -50% loops seamlessly. */
+@keyframes rail { to { transform: translateY(-50%); } }
+.animate-rail { animation: rail 60s linear infinite; }
+.animate-rail-slow { animation: rail 80s linear infinite reverse; }
+
+/* G cursor (elastic.jsx) replaces the arrow on mouse devices; text fields keep the caret. */
+html.g-cursor, html.g-cursor * { cursor: none !important; }
+html.g-cursor :is(input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]), textarea, [contenteditable="true"]) { cursor: text !important; }
+html.g-cursor select { cursor: default !important; }
+
+/* Captions: the guidelines' small caps labels, set in the brand text face */
+.caption { font-family: var(--font-text); font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; }
+[lang='ar'] .caption:not([dir='ltr']) { letter-spacing: 0; text-transform: none; font-size: 13px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+/* Luxury button type: small caps-style label; Arabic keeps natural spacing */
+.btn-lux { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; }
+[lang='ar'] .btn-lux { font-size: 14px; letter-spacing: 0; text-transform: none; }

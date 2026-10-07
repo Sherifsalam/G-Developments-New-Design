@@ -1,0 +1,74 @@
+{
+  "compiled_at": "2026-09-30",
+  "note": "Image URLs point to broker/listing sites (Property Finder, realestate.eg, Nawy, elbayt) plus the pc-thegdevelopments.com sales site. For publishing on the official website, request the original renders/masterplans from the G Developments marketing team; listing-site copies may be resized or watermarked.",
+  "projects": [
+    {
+      "name": "IVY New Zayed",
+      "developer": "G Developments (formerly New Giza)",
+      "location": "KM 22, Cairo-Alexandria Desert Road, New Zayed / Sheikh Zayed",
+      "masterplan": [
+        { "url": "https://www.pc-thegdevelopments.com/web/image/287-a7ef724b/IVY-CONCEPTUAL%20BROCHURE%20_page-0006.jpg", "source": "pc-thegdevelopments.com/ivy", "caption": "IVY New Zayed Master Plan (from conceptual brochure)" },
+        { "url": "https://realestate.eg/images/master-plans/5051113-2e2e37d988.png", "source": "realestate.eg", "caption": "IVY New Zayed Master Plan" }
+      ],
+      "photos": [
+        { "url": "https://www.pc-thegdevelopments.com/web/image/294-dc6fe524/IVY-CONCEPTUAL%20BROCHURE%20_page-0007.webp", "source": "pc-thegdevelopments.com/ivy", "caption": "IVY Compound New Zayed West Cairo (hero)" },
+        { "url": "https://www.pc-thegdevelopments.com/web/image/724-061383df/IVY-CONCEPTUAL%20BROCHURE%20_page-0012.webp", "source": "pc-thegdevelopments.com/ivy", "caption": "IVY New Zayed Aerial View" },
+        { "url": "https://www.pc-thegdevelopments.com/web/image/280-6bf14e0a/IVY-sports-club-05.webp", "source": "pc-thegdevelopments.com/ivy", "caption": "IVY Sports Club" },
+        { "url": "https://realestate.eg/images/project-g/listings/5051113/5051113-1.webp", "source": "realestate.eg", "caption": "IVY New Zayed" }
+      ],
+      "brochure": "https://www.pc-thegdevelopments.com/web/content/2631?unique=a405adee583c99e4a5e023fba160837f6c6723a6&download=true"
+    },
+    {
+      "name": "City View",
+      "developer": "G Developments (formerly New Giza)",
+      "location": "Cairo-Alexandria Desert Road, 6th of October City",
+      "masterplan": [
+        { "url": "https://new-projects-media.propertyfinder.com/project/3ce76690-5b00-4076-a28e-b926c1c2432b/master_plan/image/KQiZkW2VHfa03YbYUrSNHkn9DNekHreIjt6Ts6UeZOM=/original.webp", "source": "propertyfinder.eg", "caption": "City View Master Plan" }
+      ],
+      "photos": [
+        { "url": "https://new-projects-media.propertyfinder.com/project/3ce76690-5b00-4076-a28e-b926c1c2432b/gallery/image/txeFTcMOMV0tBUu-LgVjxt51Tcsxf7Rn7BMOUw2t8hI=/big.webp", "source": "propertyfinder.eg", "caption": "City View 1" },
+        { "url": "https://new-projects-media.propertyfinder.com/project/3ce76690-5b00-4076-a28e-b926c1c2432b/gallery/image/wya2W71bMKBhc7QzRWOvJrxKV959lT4Sh74HnyLFC3A=/medium.webp", "source": "propertyfinder.eg", "caption": "City View 2" },
+        { "url": "https://prod-images.nawy.com/processed/compound/cover_image/583/high.webp", "source": "nawy.com", "caption": "City View cover" },
+        { "url": "https://prod-images.nawy.com/processed/compound_image/image/8596/default.webp", "source": "nawy.com", "caption": "City View" },
+        { "url": "https://images.elbayt.com/files/image/id/17004/checksum/ceed78d4bda857d23ee9bf6ab6ef9751/width/1600/height/900/exterior-city-view-cairo-alex-desert-rd-newgiza-4.jpg", "source": "elbayt.com", "caption": "City View exterior" }
+      ]
+    },
+    {
+      "name": "Ein Bay",
+      "developer": "G Developments (formerly New Giza)",
+      "location": "KM 34, Ain Sokhna-Suez Road, Ain Sokhna",
+      "masterplan": [
+        { "url": "https://realestate.eg/images/master-plans/95-838a63d4c7.jpg", "source": "realestate.eg", "caption": "El Ein Bay Sokhna Master Plan" }
+      ],
+      "photos": [
+        { "url": "https://realestate.eg/images/project-g/listings/95/95-1.webp", "source": "realestate.eg", "caption": "Ein Bay Sokhna" },
+        { "url": "https://prod-images.nawy.com/processed/compound_image/image/1968/default.webp", "source": "nawy.com", "caption": "Ein Bay Ain Sokhna" },
+        { "url": "https://prod-images.nawy.com/processed/compound_image/image/1967/default.webp", "source": "nawy.com", "caption": "Ein Bay" },
+        { "url": "https://prod-images.nawy.com/processed/compound_image/image/1970/high.webp", "source": "nawy.com", "caption": "Ein Bay" },
+        { "url": "https://images.elbayt.com/files/image/id/29751/checksum/483867e3386f3d149a6f578cd9e0ecd1/width/1600/height/900/ein-bay-sokhna-g-dev.jpg", "source": "elbayt.com", "caption": "Ein Bay Sokhna" }
+      ],
+      "video": "https://www.youtube.com/watch?v=EQxoTnE2K8U"
+    },
+    {
+      "name": "Ein Resort",
+      "developer": "Unconfirmed",
+      "status": "NOT FOUND — no public listing, photos or masterplan found under this name. It may be a hotel/resort zone inside Ein Bay, or an unreleased project. Confirm with the marketing team.",
+      "masterplan": [],
+      "photos": []
+    },
+    {
+      "name": "Hacienda Red",
+      "developer": "Palm Hills Developments (per every listing found) — NOT G Developments",
+      "location": "Sidi Abdel Rahman, KM 139 International Coastal Road, North Coast",
+      "status": "CHECK — every source attributes Hacienda Red to Palm Hills. Confirm G Developments' involvement before using it on the site. No masterplan image found.",
+      "masterplan": [],
+      "photos": [
+        { "url": "https://new-projects-media.propertyfinder.com/project/b8cbd9f7-58a6-4eca-809d-f78c3d1e17ec/gallery/image/eNnkaRjoxbwObjyGd8hcawSuZuJL2swRHzVh7QapITk=/big.webp", "source": "propertyfinder.eg", "caption": "Hacienda Red 1" },
+        { "url": "https://new-projects-media.propertyfinder.com/project/b8cbd9f7-58a6-4eca-809d-f78c3d1e17ec/gallery/image/Vy2s3J-ggeWCpzamkB4F7Ac9KM8VukIW3diPk9RCFQw=/medium.webp", "source": "propertyfinder.eg", "caption": "Hacienda Red 2" },
+        { "url": "https://prod-images.nawy.com/processed/compound_image/image/6715/default.webp", "source": "nawy.com", "caption": "Hacienda Red" },
+        { "url": "https://prod-images.nawy.com/processed/compound_image/image/6714/high.webp", "source": "nawy.com", "caption": "Hacienda Red" }
+      ],
+      "video": "https://new-projects-media.propertyfinder.com/project/b8cbd9f7-58a6-4eca-809d-f78c3d1e17ec/gallery/video/V1-i_qIaMyJsyJmCeVrBegkoJxtPdAubFfHkYxMTF7U=/original.mp4"
+    }
+  ]
+}

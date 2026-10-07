@@ -1,0 +1,301 @@
+{
+  "source": {
+    "url": "https://www.pc-thegdevelopments.com/playa-ghazala",
+    "scraped_at": "2026-09-30",
+    "platform": "Odoo",
+    "note": "Site footer states it is managed by David Fahim, Sales Manager at The G Developments, and is not the official corporate website."
+  },
+  "seo": {
+    "title": "Playa Ghazala | G Developments",
+    "og_site_name": "G Developments",
+    "og_image": "https://www.pc-thegdevelopments.com/web/image/636-2ab46c53/5555.webp",
+    "keywords": ["Playa Ghazala", "Playa Ghazala North Coast", "ghazala beach north coast", "north coast", "seashell", "brochure", "New Giza", "New Giza Developments", "new giza developments"]
+  },
+  "hero": {
+    "eyebrow": "North Coast · KM 141 · Ready to Move",
+    "title": "Playa Ghazala — Redefining Luxury on the North Coast",
+    "subtitle": "A premium beachfront resort by G Developments — nestled along the longest private beach on Egypt's North Coast, stretching 1.5km of pristine Mediterranean coastline at Ghazala Bay.",
+    "image": {
+      "url": "https://www.pc-thegdevelopments.com/web/image/636-2ab46c53/5555.webp",
+      "alt": "Playa Ghazala North Coast G Developments"
+    },
+    "stats": [
+      { "label": "Beach", "value": "1.5 KM", "caption": "Private Beachfront" },
+      { "label": "Location", "value": "KM 141", "caption": "International Coastal Road" },
+      { "label": "Status", "value": "Ready", "caption": "Move In Today" },
+      { "label": "From Alexandria", "value": "1.5 hrs", "caption": "3.5 hrs from Cairo" }
+    ]
+  },
+  "about": {
+    "eyebrow": "About Playa Ghazala",
+    "title": "The Ultimate North Coast Destination",
+    "paragraphs": [
+      "Discover Playa Ghazala — a high-end coastal resort masterfully developed by G Developments along the longest private beach on Egypt's North Coast. Nestled at the coveted Ghazala Bay, this premium destination redefines luxury vacations with its thoughtful design and unparalleled seaside experience.",
+      "Surrounded by lush greenery and picturesque Mediterranean surroundings, Playa Ghazala offers the ideal setting for outdoor activities, scenic strolls, and cherished moments of leisure. A pet-friendly resort where the whole family — including furry members — can enjoy coastal paradise."
+    ],
+    "image": {
+      "url": "https://www.pc-thegdevelopments.com/web/image/638-f3f1851c/test.webp",
+      "alt": "Playa Ghazala Beachfront"
+    }
+  },
+  "rtm_banner": {
+    "eyebrow": "Now Available · No Waiting",
+    "title": "Ready-to-Move Signature Villas",
+    "text": "Skip the wait — move into your Playa Ghazala villa today. No construction delays, immediate luxury.",
+    "cta": { "label": "View RTM Villas →", "href": "https://www.pc-thegdevelopments.com/playa-ghazala-rtm-villas" }
+  },
+  "offerings": [
+    {
+      "id": "g-villas",
+      "badge": "Fully Constructed · Ready",
+      "eyebrow": "G Villas · Beachfront",
+      "title": "G Villas — Standalone 262 SQM Beachfront Villa",
+      "description": "A fully constructed standalone villa positioned directly on Playa Ghazala's beachfront. Move in without waiting for delivery — own the longest private beach on Egypt's North Coast.",
+      "features": ["Direct beachfront position", "Fully constructed — no delivery wait", "262 SQM standalone layout"],
+      "pricing": { "label": "Total Investment", "amount": "78M", "currency": "EGP", "down_payment": "25%", "installments": "2 Years" },
+      "image": {
+        "url": "https://www.pc-thegdevelopments.com/web/image/2933-f4136083/G%20Villas%20E%20Brochure%2031.07.2021_page-0010.webp",
+        "alt": "G Villas Playa Ghazala Beachfront Standalone Villa"
+      },
+      "ctas": [
+        { "label": "View Full Details →", "href": "https://www.pc-thegdevelopments.com/playa-ghazala/g-villas" },
+        { "label": "Register Interest →", "href": "https://www.pc-thegdevelopments.com/playa-ghazala/g-villas" }
+      ]
+    },
+    {
+      "id": "g-village",
+      "section_eyebrow": "New Phase · 2026",
+      "section_title": "G Village — Dwellings & Twinhouses",
+      "badge": "New Phase · Delivery 3 Years",
+      "eyebrow": "G Village",
+      "title": "Dwellings & Twinhouses at Playa Ghazala",
+      "description": "The newest residential phase at Playa Ghazala — five distinct unit types across Dwellings buildings and Twinhouses, fully finished, delivered in 3 years.",
+      "price_points": [
+        { "label": "Dwellings from", "value": "21.4M EGP" },
+        { "label": "Twinhouse from", "value": "31.4M EGP" }
+      ],
+      "pricing": { "label": "Starting From", "amount": "21.4M", "currency": "EGP", "down_payment": "10%", "installments": "6 Years" },
+      "image": {
+        "url": "https://www.pc-thegdevelopments.com/web/image/2960-80566ea1/Dwellings%201.webp",
+        "alt": "G Village Dwellings Playa Ghazala G Developments"
+      },
+      "ctas": [
+        { "label": "View Full Details →", "href": "https://www.pc-thegdevelopments.com/playa-ghazala/g-village" },
+        { "label": "Register Interest →", "href": "https://www.pc-thegdevelopments.com/playa-ghazala/g-village" }
+      ]
+    }
+  ],
+  "unit_types": {
+    "eyebrow": "Residential Options",
+    "title": "Unit Types at Playa Ghazala",
+    "intro": "A curated collection of Mediterranean-inspired residences — each crafted with exquisite detail and breathtaking sea views.",
+    "units": [
+      { "type": "Chalets", "headline": "Sea View Living", "specs": { "View": "Sea & Garden", "Finishing": "Fully Finished", "Style": "Mediterranean" }, "price": "Contact Sales for Pricing" },
+      { "type": "Townhouses", "headline": "Private Garden", "specs": { "Garden": "Private", "Finishing": "Fully Finished", "Style": "Mediterranean" }, "price": "Contact Sales for Pricing" },
+      { "type": "Twin Houses", "headline": "Spacious Living", "specs": { "Garden": "Private", "Finishing": "Fully Finished", "Style": "Mediterranean" }, "price": "Contact Sales for Pricing" },
+      { "type": "Beach Houses", "headline": "Beachfront Living", "specs": { "Position": "Directly on Beach", "View": "Full Sea View", "Finishing": "Fully Finished" }, "price": "Contact Sales for Pricing" },
+      { "type": "Standalone Villas", "headline": "Ultimate Privacy", "specs": { "Garden": "Private", "View": "Sea & Garden", "Finishing": "Fully Finished" }, "price": "Ready to Move", "cta": { "label": "View Available Villas →", "href": "https://www.pc-thegdevelopments.com/playa-ghazala-rtm-villas" } },
+      { "type": "G Villas", "badge": "Fully Constructed", "headline": "Beachfront Standalone", "specs": { "BUA": "262 SQM", "Position": "Beachfront", "Status": "Fully Constructed" }, "price": "From 78M EGP", "cta": { "label": "View G Villas →", "href": "https://www.pc-thegdevelopments.com/playa-ghazala/g-villas" } }
+    ]
+  },
+  "masterplan": {
+    "eyebrow": "The Masterplan",
+    "title": "Three Distinct Experiences",
+    "intro": "The Playa Ghazala masterplan integrates three thoughtfully designed zones — each offering a unique lifestyle experience.",
+    "zones": [
+      {
+        "zone": "Zone 01",
+        "title": "Central Spine",
+        "text": "A seamless link between the pristine beach and the vibrant downtown — enriched with parks and Mediterranean vegetation adapted to the North Coast climate.",
+        "image": { "url": "https://www.pc-thegdevelopments.com/web/image/642-51069042/66666.webp", "alt": "Central Spine Playa Ghazala" }
+      },
+      {
+        "zone": "Zone 02",
+        "title": "The Promenade",
+        "text": "Cycling, skateboarding, and jogging along the coastline — plus a state-of-the-art sports club with Pilates, yoga, and premium fitness facilities.",
+        "image": { "url": "https://www.pc-thegdevelopments.com/web/image/641-66a27498/3000000.webp", "alt": "Promenade Playa Ghazala" }
+      },
+      {
+        "zone": "Zone 03",
+        "title": "Cable Park & Downtown",
+        "text": "Adrenaline-pumping cable park for thrill-seekers — alongside abundant retail outlets and diverse dining options for every mood.",
+        "image": { "url": "https://www.pc-thegdevelopments.com/web/image/644-034039e6/7777.webp", "alt": "Cable Park Playa Ghazala" }
+      }
+    ]
+  },
+  "amenities": {
+    "eyebrow": "Resort Lifestyle",
+    "title": "World-Class Amenities",
+    "intro": "Everything you need for the perfect North Coast lifestyle — all within one resort.",
+    "items": [
+      { "icon": "🏖️", "label": "Beach", "text": "1.5 KM Private Beach" },
+      { "icon": "🏋️", "label": "Sports", "text": "Premier Sports Club" },
+      { "icon": "⚡", "label": "Adventure", "text": "Cable Park" },
+      { "icon": "🍽️", "label": "Dining", "text": "Fine Dining by the Sea" },
+      { "icon": "🛍️", "label": "Retail", "text": "Shops & Boutiques" },
+      { "icon": "🌿", "label": "Wellness", "text": "Pilates, Yoga & LA7 Fitness" },
+      { "icon": "🚴", "label": "Activities", "text": "Cycling, Jogging & Skating" },
+      { "icon": "🐾", "label": "Pet Friendly", "text": "Pet-Friendly Resort" }
+    ]
+  },
+  "architecture": {
+    "eyebrow": "Design Philosophy",
+    "title": "Distinct Mediterranean Architecture",
+    "text": "Playa Ghazala masterfully combines streamlined exteriors, breezy arches, and earthy textures — a design that inspires indulgence and relaxation. The concept merges defined exterior lines with soft, flowing walls complemented by contemporary arches that balance modernity with timeless elegance.",
+    "features": ["Soothing earthy hues & raw interior textures", "Contemporary arches — modern meets timeless", "Seamless indoor-outdoor Mediterranean living"],
+    "image": { "url": "https://www.pc-thegdevelopments.com/web/image/646-2930708a/Playa%20Client%20Presentation%202.pdf.webp", "alt": "Playa Ghazala Architecture" }
+  },
+  "location": {
+    "eyebrow": "Getting Here",
+    "title": "Prime Location",
+    "items": [
+      { "label": "Road", "value": "Alexandria-Marsa Matrouh Road" },
+      { "label": "KM", "value": "Kilometer 141 / 146" },
+      { "label": "From Alexandria", "value": "Approx. 1.5 Hours West" },
+      { "label": "From Cairo", "value": "Approx. 3.5 Hours Northwest" },
+      { "label": "Airport", "value": "Near Al Alamein International Airport" },
+      { "label": "Nearby", "value": "Sidi Abdel Rahman · Hacienda Bay" }
+    ]
+  },
+  "brochure": {
+    "eyebrow": "Download",
+    "title": "Playa Ghazala — Official Brochure",
+    "text": "Discover the full vision, masterplan, unit types and resort lifestyle of Playa Ghazala.",
+    "cta_label": "↓ Download Brochure",
+    "url": "https://www.pc-thegdevelopments.com/web/content/634?unique=0f151eb36970c671c49bc6cb98882ebdb17a927a&download=true"
+  },
+  "related_projects": {
+    "eyebrow": "Explore More",
+    "title": "Other North Coast Projects",
+    "items": [
+      {
+        "name": "Seashell Ras El Hekma",
+        "eyebrow": "North Coast · KM 194",
+        "text": "Exclusive chalets, standalone villas, and lagoon views — 8.5-year payment plan from 16.1M EGP.",
+        "cta": { "label": "Explore Seashell →", "href": "https://www.pc-thegdevelopments.com/seashell-ras-el-hekma" },
+        "image": { "url": "https://www.pc-thegdevelopments.com/web/image/1283-8c0df747/G%20resdince%20Seashell%20Ras%20El%20Hekma.webp", "alt": "Seashell Ras El Hekma" }
+      },
+      {
+        "name": "Playa Ras El Hekma",
+        "eyebrow": "North Coast · Phase 3 Live",
+        "text": "The G Serviced Chalets managed by G Hotel — Phase 3 now launched from 15.3M EGP.",
+        "cta": { "label": "Explore Playa →", "href": "https://www.pc-thegdevelopments.com/playaraselhikma" },
+        "image": { "url": "https://www.pc-thegdevelopments.com/web/image/1284-f236c8fc/WhatsApp%20Image%202025-01-26%20at%2012.48.14%20PM.webp", "alt": "Playa Ras El Hekma" }
+      }
+    ]
+  },
+  "contact_form": {
+    "eyebrow": "Book a Private Tour",
+    "title": "Our Team Will Contact You Within 24 Hours",
+    "text": "Submit your details to book a private viewing or get more information about available units at Playa Ghazala.",
+    "fields": ["Your Name *", "Phone Number *", "Your Email *", "Subject *"],
+    "submit_label": "Submit"
+  },
+  "site_wide_popups": {
+    "note": "These modals are embedded on every page of the site (not specific to Playa Ghazala).",
+    "items": [
+      {
+        "title": "Seashell Ras El Hekma · Sea Front — Luxury Standalone Villas with Full Sea View",
+        "text": "10 exclusive villa types across Rows 1–8. Unobstructed Mediterranean sea view · Private gardens · Delivery 2029",
+        "starting_from": "46.2M EGP · Full Panoramic Sea View",
+        "villas": [
+          { "row": "Row 8", "villa": "Villa 06", "bedrooms": 4, "from": "46.2M EGP" },
+          { "row": "Row 5", "villa": "Villa 05", "bedrooms": 4, "from": "54.3M EGP" },
+          { "row": "Row 2", "villa": "Villa 03", "bedrooms": 5, "from": "92.4M EGP" },
+          { "row": "Row 1 · Beachfront", "villa": "Villa 01A", "bedrooms": 6, "from": "202.1M EGP" }
+        ],
+        "note": "Full sea view · Private gardens · 1.6KM private beach access · Our team will contact you within 24 hours",
+        "cta": { "label": "View All 10 Villa Types & Prices →", "href": "https://www.pc-thegdevelopments.com/seashell-ras-el-hekma/standalone-villas" },
+        "interest_options": ["1 Bd Ground", "2 Bds Chalet", "Grand beach house 3 BDS", "Horzione Chalet Ground", "Horzione Chalet Upper", "Twinhouse", "Standalone"]
+      },
+      {
+        "title": "Seashell Ras El Hekma 8.5 Years Payment Plan",
+        "eyebrow": "North Coast · Limited Availability",
+        "text": "Lagoon Views Phase 2 — Own in the future of Egypt's North Coast, in one of the Mediterranean's most prestigious locations. Prime location. Exceptional value. Limited availability.",
+        "payment_plan": "5% Down Payment · 8.5 Years Installments",
+        "units": [
+          { "type": "2 Bedrooms Duplex", "area": "110 SQM + Garden 50 SQM", "price": "16.1M EGP" },
+          { "type": "3 Bedrooms Duplex", "area": "140 SQM + Garden 100 SQM", "price": "20.5M EGP" },
+          { "type": "3 Bedrooms Ground", "area": "193 SQM + Garden 550 SQM", "price": "23.4M EGP" },
+          { "type": "4 Bedrooms Upper", "area": "235 SQM + Roof 155 SQM", "price": "24.5M EGP" }
+        ]
+      },
+      {
+        "title": "PLAYA - Ras El Hekma Launch",
+        "text": "G Developments proudly presents the launch of Playa Ras El Hekma – Phase 3! The G Serviced Chalets, exclusively serviced by G Hotel.",
+        "payment_plan": "5% Over 7 Years installments",
+        "units": [
+          { "type": "1 Bedroom", "area": "71m", "from": "9.2M" },
+          { "type": "2 Bedrooms", "area": "118m-127m", "from": "15.3M" },
+          { "type": "3 Bedrooms", "area": "167m-174m", "from": "21.7M" },
+          { "type": "Penthouses", "area": "180m-218m", "from": "24.3M" }
+        ]
+      },
+      {
+        "title": "8.5 Years Payment Plan",
+        "text": "Seashell Ras El Hekma – Lagoon Views Phase 2. The wait is over. Own in the future of Egypt's North Coast, in one of the Mediterranean's most prestigious locations. Prime location. Exceptional value. Limited availability. Secure your unit before this phase sells out."
+      },
+      {
+        "title": "New Launch at New Kairo — Fully Finished Townhouses & Villas",
+        "text": "Middle & Corner units available – limited release.",
+        "payment_plan": "5% Down Payment · 7 Years Installments",
+        "units": [
+          { "type": "Townhouse Middle", "bua": "180m²", "beds": 3, "price": "18.3M EGP" },
+          { "type": "Townhouse + Penthouse", "bua": "215m²", "beds": 4, "price": "21.9M EGP" },
+          { "type": "Semi Attached Villa", "bua": "192m²", "beds": 4, "price": "19.9M EGP" },
+          { "type": "Semi Attached + Penthouse", "bua": "230m²", "beds": 5, "price": "23.9M EGP" },
+          { "type": "Semi Attached Villa", "bua": "197m²", "beds": 4, "price": "22.2M EGP" },
+          { "type": "Semi Attached + Penthouse", "bua": "237m²", "beds": 5, "price": "26.7M EGP" },
+          { "type": "Standalone + Penthouse", "bua": "260m²", "beds": 5, "price": "31.8M EGP" }
+        ]
+      },
+      {
+        "title": "New Launch at New Kairo 8.5 Years Installments",
+        "text": "Apartments: 1 Bd, 2 Bds, 3 Bds, 4 Bds. Fully finished with A/cs.",
+        "payment_plan": "5% downpayment 8.5 years installments"
+      },
+      {
+        "title": "New Launch at New Giza",
+        "text": "G developments is launching a new building at Cypher New Giza. Serviced apartments. Unit types and prices (AVG.)",
+        "units": [
+          { "type": "1 bedroom", "area": "103 SQM", "price": "14,763,000" },
+          { "type": "2 bedrooms", "area": "147 SQM", "price": "19,829,000" },
+          { "type": "3 bedrooms", "area": "297 SQM", "price": "43,581,000" },
+          { "type": "4 bedrooms", "area": "366 SQM", "price": "56,493,000" },
+          { "type": "5 bedrooms", "area": "1070 SQM", "price": "140,170,000" }
+        ]
+      }
+    ]
+  },
+  "site_chrome": {
+    "brand": "G Developments x Artlife",
+    "phone": "+201149458885",
+    "email": "david.fahim@thegdevelopments.com",
+    "whatsapp": "https://wa.me/201149458885",
+    "navigation": {
+      "East": [{ "name": "New Kairo", "href": "https://www.pc-thegdevelopments.com/new-kairo" }],
+      "West": [
+        { "name": "New Giza", "href": "https://www.pc-thegdevelopments.com/newgiza" },
+        { "name": "City View", "href": null },
+        { "name": "IVY New Zayed", "href": "https://www.pc-thegdevelopments.com/ivy" }
+      ],
+      "North Coast": [
+        { "name": "Hacienda Red", "href": null },
+        { "name": "Playa Ghazala", "href": "https://www.pc-thegdevelopments.com/playa-ghazala" },
+        { "name": "Seashell", "href": "https://www.pc-thegdevelopments.com/seashell" },
+        { "name": "Playa Ras El Hekma", "href": "https://www.pc-thegdevelopments.com/playaraselhikma" },
+        { "name": "Seashell Ras El Hekma", "href": "https://www.pc-thegdevelopments.com/seashell-ras-el-hekma" }
+      ],
+      "Sokhna": [
+        { "name": "EinBay", "href": null },
+        { "name": "EinResort", "href": null }
+      ]
+    },
+    "footer_about": "G Developments proudly presents a diverse portfolio of exceptional projects across Egypt's most sought-after locations. From the luxurious lifestyle of New Giza and the vibrant urban hub of IVY in West Cairo, to the pristine beaches of Hacienda Red, Playa Ghazala, Seashell, Playa Ras El Hekma, and Seashell Ras El Hekma in Sahel, we offer unparalleled living experiences. In East Cairo, discover the thriving community of New Cairo, and escape to the serene retreats of Ein Bay and Ein Resort in Sokhna. G Developments is committed to creating distinctive and enriching environments that cater to every lifestyle."
+  },
+  "linked_subpages": [
+    "https://www.pc-thegdevelopments.com/playa-ghazala-rtm-villas",
+    "https://www.pc-thegdevelopments.com/playa-ghazala/g-villas",
+    "https://www.pc-thegdevelopments.com/playa-ghazala/g-village"
+  ]
+}
