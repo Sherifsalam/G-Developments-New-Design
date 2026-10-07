@@ -419,14 +419,14 @@ export function CloseButton({ onClick }) {
 
 export function Segmented({ options, value, onChange, tone = 'dark', layoutId, label }) {
   return (
-    <div role="tablist" aria-label={label} className={cx('inline-flex max-w-full flex-wrap gap-1 rounded-full p-1', tone === 'dark' ? 'bg-white/[0.06] ring-1 ring-white/10' : 'bg-black/[0.05] ring-1 ring-black/10')}>
+    <div role="tablist" aria-label={label} className={cx('no-scrollbar inline-flex max-w-full gap-1 overflow-x-auto rounded-full p-1', tone === 'dark' ? 'bg-white/[0.06] ring-1 ring-white/10' : 'bg-black/[0.05] ring-1 ring-black/10')}>
       {options.map((o) => {
         const on = o.value === value;
         return (
           <button
             key={o.value} type="button" role="tab" aria-selected={on} onClick={() => onChange(o.value)}
             className={cx(
-              'relative rounded-full px-4 py-2 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
+              'relative shrink-0 whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
               tone === 'dark'
                 ? (on ? 'text-black' : 'text-g-25 hover:text-white') + ' focus-visible:outline-white'
                 : (on ? 'text-white' : 'text-g-75 hover:text-black') + ' focus-visible:outline-black',
@@ -763,6 +763,8 @@ function Hero({ ready, onConcierge }) {
         </motion.div>
       </motion.div>
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.7)_0%,rgba(0,0,0,0.15)_28%,rgba(0,0,0,0.35)_60%,#000_100%)]" />
+      {/* phones: the copy sits over bright rooftops, so give it a darker floor to read against */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[70%] bg-gradient-to-t from-black via-black/60 to-transparent md:hidden" />
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 hidden bg-[linear-gradient(to_right,rgba(0,0,0,0.7)_0%,rgba(0,0,0,0)_60%)] md:block rtl:bg-[linear-gradient(to_left,rgba(0,0,0,0.7)_0%,rgba(0,0,0,0)_60%)]" />
 
       <motion.div style={{ opacity: fade }} className="mx-auto flex w-full max-w-[1320px] flex-1 flex-col px-4 pb-6 pt-[calc(7rem+env(safe-area-inset-top,0px))] sm:px-6">
@@ -1300,11 +1302,12 @@ function QuickContact({ onConcierge }) {
           initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 24 }}
           className="fixed bottom-[calc(1rem+env(safe-area-inset-bottom,0px))] end-4 z-[55] flex items-center gap-1 rounded-full border border-white/15 bg-black/70 p-1.5 text-white shadow-[0_20px_60px_-20px_rgba(0,0,0,0.8)] backdrop-blur-2xl"
         >
-          <a href={`tel:${CONTACT.hotline}`} className="inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm font-medium tabular-nums hover:bg-white/10" aria-label={`${t.hotline} ${CONTACT.hotline}`}>
-            <Phone size={15} /> {CONTACT.hotline}
+          {/* Phones: icons only, so the pill stops covering the filter tabs and cards beneath it. */}
+          <a href={`tel:${CONTACT.hotline}`} className="inline-flex h-11 w-11 items-center justify-center gap-2 rounded-full text-sm font-medium tabular-nums hover:bg-white/10 sm:h-auto sm:w-auto sm:px-4 sm:py-2.5" aria-label={`${t.hotline} ${CONTACT.hotline}`}>
+            <Phone size={15} /> <span className="hidden sm:inline">{CONTACT.hotline}</span>
           </a>
-          <button type="button" onClick={onConcierge} className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-medium text-black hover:bg-g-25">
-            <MessageCircle size={15} /> {t.quick}
+          <button type="button" onClick={onConcierge} aria-label={t.quick} className="inline-flex h-11 w-11 items-center justify-center gap-2 rounded-full bg-white text-sm font-medium text-black hover:bg-g-25 sm:h-auto sm:w-auto sm:px-4 sm:py-2.5">
+            <MessageCircle size={15} /> <span className="hidden sm:inline">{t.quick}</span>
           </button>
         </motion.div>
       )}
