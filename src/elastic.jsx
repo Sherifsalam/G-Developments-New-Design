@@ -13,11 +13,10 @@ import Lenis from 'lenis';
 import {
   motion, useInView, useMotionValue, useScroll, useSpring, useTransform, useVelocity,
 } from 'framer-motion';
-import { isPhone, isStill, useStill } from './motion.js';
+import { hasMouse, isPhone, isStill, isTouch, useStill } from './motion.js';
 
 const cx = (...c) => c.filter(Boolean).join(' ');
 const prefersReduced = () => typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-const finePointer = () => typeof window !== 'undefined' && window.matchMedia?.('(pointer: fine)').matches;
 
 /* ───────── smooth scroll ───────── */
 
@@ -30,7 +29,7 @@ export function SmoothScroll({ children }) {
 
   useEffect(() => {
     // Phones scroll natively: Lenis' inertia fights iOS momentum scrolling and the toolbar resize.
-    if (prefersReduced() || isPhone()) return undefined;
+    if (prefersReduced() || isPhone() || isTouch()) return undefined;
     const lenis = new Lenis({ lerp: 0.1, smoothWheel: true, wheelMultiplier: 0.9 });
     lenisRef.current = lenis;
     let raf = 0;
@@ -102,7 +101,7 @@ const CLICKABLE = 'a, button, select, label[for], [role="tab"], [role="radio"]';
  * squeezes on click. Text fields keep the native caret so typing still feels normal.
  */
 export function GCursor() {
-  const [enabled] = useState(() => finePointer());
+  const [enabled] = useState(() => hasMouse());
   const [visible, setVisible] = useState(false);
   const [hover, setHover] = useState(false);
   const [field, setField] = useState(false);
@@ -245,7 +244,7 @@ const c2 = (w) => Math.min(14, w * 0.09);
 export function ElasticWordmark({ text = 'G Developments', reveal = true, delay = 0.1, inView = false }) {
   const px = useMotionValue(-9999);
   const py = useMotionValue(-9999);
-  const [live] = useState(() => finePointer() && !prefersReduced());
+  const [live] = useState(() => hasMouse() && !prefersReduced());
   // `inView` (the footer) waits until the wordmark is scrolled to. It watches the wordmark box
   // itself: the letters start pushed 110% down, out of their own box, and at the very bottom of
   // the page they can never scroll into view — watching them meant they never rose at all.

@@ -275,7 +275,7 @@ function ProjectExplorer({ p, openConcierge }) {
   return (
     <div>
       {/* Stays under the header while you scroll the panel below, so you can always switch tab. */}
-      <div className="sticky top-[calc(4.75rem+env(safe-area-inset-top,0px))] [html[data-nav-hidden=true]_&]:top-0 transition-[top] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] z-30 -mx-4 flex flex-wrap items-center justify-between gap-3 bg-black/85 px-4 py-3 backdrop-blur-xl sm:-mx-6 sm:px-6">
+      <div className="sticky top-[calc(4.75rem+env(safe-area-inset-top,0px))] [html[data-nav-hidden=true]_&]:top-0 transition-[top] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] z-30 -mx-4 flex flex-wrap items-center justify-between gap-3 bg-black/85 px-4 py-3 backdrop-blur-xl max-md:bg-black/95 max-md:backdrop-blur-none sm:-mx-6 sm:px-6">
         <Segmented layoutId="project-tab" label={p.name} value={tab} onChange={setTab} options={tabs} />
         {tab === 'masterplan' && <span className="caption text-g-50">{t.modal.illustrative}</span>}
       </div>

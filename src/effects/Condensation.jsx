@@ -5,7 +5,7 @@
  * and a React wrapper with pause-when-hidden.
  */
 import { useEffect, useRef } from 'react';
-import { isPhone } from '../motion.js';
+import { isPhone, isTouch } from '../motion.js';
 
 export const CONDENSATION_DEFAULTS = {
   speed: 1,
@@ -84,7 +84,7 @@ export function createCondensationRenderer(
   };
 
   const resize = (cssWidth, cssHeight) => {
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    dpr = Math.min(window.devicePixelRatio || 1, 1.5);
     width = canvas.width = Math.max(1, Math.floor(cssWidth * dpr));
     height = canvas.height = Math.max(1, Math.floor(cssHeight * dpr));
     canvas.style.width = `${cssWidth}px`;
@@ -191,12 +191,14 @@ export default function Condensation({ className = '', speed = 1, dropAmount = 1
   useEffect(() => {
     const host = hostRef.current;
     if (!host) return undefined;
+    // Phones and touch devices get the host's plain background: no canvas, no per-frame drawing.
+    if (isPhone() || isTouch()) return undefined;
     const canvas = document.createElement('canvas');
     canvas.style.cssText = 'position:absolute;inset:0;display:block';
     host.appendChild(canvas);
     let renderer;
     try { renderer = createCondensationRenderer(canvas, () => optsRef.current); } catch { canvas.remove(); return undefined; }
-    const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches || isPhone();
+    const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
     let frame = 0; let visible = true;
     const resize = () => { const r = host.getBoundingClientRect(); renderer.resize(r.width, r.height); renderer.render(performance.now()); };
     const tick = (now) => { renderer.render(now); frame = visible && !document.hidden && !reduce ? requestAnimationFrame(tick) : 0; };

@@ -14,6 +14,10 @@ const match = (q) => typeof window !== 'undefined' && !!window.matchMedia?.(q).m
 
 /** Non-reactive check, for code that runs once (Lenis setup, the intro). */
 export const isPhone = () => match(PHONE_QUERY);
+/** Touch-first devices (phones, most tablets): no hover, coarse pointer. */
+export const isTouch = () => match('(hover: none), (pointer: coarse)');
+/** A real mouse or trackpad is the primary input. */
+export const hasMouse = () => match('(hover: hover) and (pointer: fine)');
 export const isStill = () => match(PHONE_QUERY) || match(REDUCED_QUERY);
 
 function subscribe(cb) {

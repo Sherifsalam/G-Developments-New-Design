@@ -161,7 +161,7 @@ export function StoryPage() {
         </div>
       </section>
 
-      <nav aria-label={L(ABOUT_PAGES[1].title)} className="sticky top-[calc(4.75rem+env(safe-area-inset-top,0px))] [html[data-nav-hidden=true]_&]:top-0 transition-[top] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] z-40 border-y border-white/10 bg-black/85 backdrop-blur-xl">
+      <nav aria-label={L(ABOUT_PAGES[1].title)} className="sticky top-[calc(4.75rem+env(safe-area-inset-top,0px))] [html[data-nav-hidden=true]_&]:top-0 transition-[top] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] z-40 border-y border-white/10 bg-black/85 backdrop-blur-xl max-md:bg-black/95 max-md:backdrop-blur-none">
         <div className={cx(WRAP, 'no-scrollbar flex overflow-x-auto')}>
           {s.milestones.map((m) => (
             <a

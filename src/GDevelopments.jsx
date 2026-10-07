@@ -516,7 +516,7 @@ function Header({ onMenu, menuOpen, onConcierge, lang, setLang }) {
     >
       <div className={cx(
         'mx-auto flex max-w-[1320px] items-center gap-3 rounded-full border py-2 pe-2 ps-5 transition-colors duration-500',
-        solid || menuOpen ? 'border-white/10 bg-black/60 backdrop-blur-2xl' : 'border-transparent bg-transparent',
+        solid || menuOpen ? 'border-white/10 bg-black/60 backdrop-blur-2xl max-md:bg-black/90 max-md:backdrop-blur-none' : 'border-transparent bg-transparent',
       )}>
         <a {...linkTo(ROUTES.home)} className="shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white" aria-label="G Developments home">
           <img src={logoWhite} alt="G Developments" className="h-[15px] w-auto sm:h-[17px]" width="140" height="17" />
@@ -793,7 +793,7 @@ function Hero({ ready, onConcierge }) {
           >
             <p className="max-w-[46ch] text-[15px] leading-relaxed text-g-25 lg:text-end">{t.heroSub}</p>
             <div className="flex flex-wrap gap-3">
-              <Elastic as="a" href="#destinations" className={cx(BTN_GHOST, 'backdrop-blur-sm')}>
+              <Elastic as="a" href="#destinations" className={cx(BTN_GHOST, 'backdrop-blur-sm max-md:backdrop-blur-none')}>
                 {t.explore} <ArrowRight size={17} className="rtl:rotate-180" />
               </Elastic>
               <Elastic type="button" onClick={onConcierge} className={BTN_LIGHT}>
@@ -1308,7 +1308,7 @@ function QuickContact({ onConcierge }) {
       {show && (
         <motion.div
           initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 24 }}
-          className="fixed bottom-[calc(1rem+env(safe-area-inset-bottom,0px))] end-4 z-[55] flex items-center gap-1 rounded-full border border-white/15 bg-black/70 p-1.5 text-white shadow-[0_20px_60px_-20px_rgba(0,0,0,0.8)] backdrop-blur-2xl"
+          className="fixed bottom-[calc(1rem+env(safe-area-inset-bottom,0px))] end-4 z-[55] flex items-center gap-1 rounded-full border border-white/15 bg-black/70 p-1.5 text-white shadow-[0_20px_60px_-20px_rgba(0,0,0,0.8)] backdrop-blur-2xl max-md:bg-black/90 max-md:backdrop-blur-none"
         >
           {/* Phones: icons only, so the pill stops covering the filter tabs and cards beneath it. */}
           <a href={`tel:${CONTACT.hotline}`} className="inline-flex h-11 w-11 items-center justify-center gap-2 rounded-full text-sm font-medium tabular-nums hover:bg-white/10 sm:h-auto sm:w-auto sm:px-4 sm:py-2.5" aria-label={`${t.hotline} ${CONTACT.hotline}`}>
@@ -1830,7 +1830,7 @@ function Page({
     <div
       dir={lang === 'ar' ? 'rtl' : 'ltr'}
       lang={lang}
-      className="min-h-screen overflow-x-clip bg-black font-text text-white antialiased"
+      className="min-h-screen min-h-[100svh] overflow-x-clip bg-black font-text text-white antialiased"
     >
       <Intro enabled={showIntro} onDone={onIntroDone} skipLabel={t.intro.skip} />
       <GCursor />
