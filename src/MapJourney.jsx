@@ -733,7 +733,8 @@ export default function MapJourney({ openConcierge }) {
             <span className="relative h-3.5 w-3.5 rounded-full border-2 border-white bg-black" />
             <span className={cx(
               'absolute top-1/2 flex -translate-y-1/2 items-center gap-2 whitespace-nowrap rounded-full bg-black px-3 py-1.5 text-[12px] font-medium text-white shadow-lg transition group-hover:bg-white group-hover:text-black',
-              a.label === 'left' ? 'right-7' : 'left-7',
+              // Cairo and Ain Sokhna sit one pin-width apart; on a phone Cairo's label goes the other way.
+              (lay.mobile && a.id === 'cairo') || a.label === 'left' ? 'right-7' : 'left-7',
             )}
             >
               {L(a.name)} <span className="tabular-nums text-g-50 group-hover:text-g-75">{a.projects.length}</span>
@@ -845,7 +846,7 @@ export default function MapJourney({ openConcierge }) {
         )}
 
         {/* hint + destination chips */}
-        <div className={cx('absolute inset-x-0 bottom-0 z-50 px-4 pb-[calc(1rem+env(safe-area-inset-bottom,0px))] transition-opacity duration-500 sm:px-6', focus && 'pointer-events-none opacity-0')}>
+        <div className={cx('absolute inset-x-0 bottom-0 z-50 px-4 pb-[calc(5.5rem+env(safe-area-inset-bottom,0px))] transition-opacity duration-500 sm:px-6 lg:pb-[calc(1rem+env(safe-area-inset-bottom,0px))]', focus && 'pointer-events-none opacity-0')}>
           <div className="mx-auto flex max-w-[1320px] flex-col gap-3">
             {/* a pill, so the hint stays readable over the black stage and over the opened map alike */}
             <p ref={hintRef} role="status" className="caption mx-auto w-fit rounded-full bg-black/60 px-4 py-1.5 text-center text-g-25 backdrop-blur-md" />
